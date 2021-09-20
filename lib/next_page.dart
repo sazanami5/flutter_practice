@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class NextPage extends StatelessWidget {
+  NextPage(this.name);
+  final String name;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -8,17 +11,21 @@ class NextPage extends StatelessWidget {
         title: Text('次の画面'),
       ),
       body: Container(
-        height: double.infinity,
-        color: Colors.blue,
-        child: Center(
-          child: ElevatedButton(
-            child: Text('戻る'),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ),
-      ),
+          height: double.infinity,
+          color: Colors.blue,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(name),
+                Center(
+                  child: ElevatedButton(
+                    child: Text('戻る'),
+                    onPressed: () {
+                      Navigator.pop(context, 'hello hero');
+                    },
+                  ),
+                ),
+              ])),
     );
   }
 }

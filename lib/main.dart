@@ -14,13 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      initialRoute: '/',
-      routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        '/': (context) => MyHomePage(title: '新しいアプリ'),
-        // When navigating to the "/second" route, build the SecondScreen widget.
-        '/second': (context) => NextPage(),
-      },
+      home: MyHomePage(title: '新しいアプリ'),
     );
   }
 }
@@ -42,6 +36,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  String text = '次へ';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,13 +46,14 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: ElevatedButton(
-          child: Text('次へ'),
+          child: Text(text),
           onPressed: () {
-            Navigator.pushNamed(context, '/second');
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => NextPage()),
-            // );
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NextPage('Hi Hirokazu')
+                ),
+            );
           },
         ),
       ),
