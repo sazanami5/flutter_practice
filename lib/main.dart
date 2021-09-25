@@ -44,17 +44,25 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: ElevatedButton(
-          child: Text(text),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => NextPage('Hi Hirokazu')
-                ),
-            );
-          },
+      body: Container(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Image.network('https://avatars.githubusercontent.com/u/56644158?v=4'),
+            ElevatedButton(
+              child: Text(text),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NextPage('Hi Hirokazu'),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
